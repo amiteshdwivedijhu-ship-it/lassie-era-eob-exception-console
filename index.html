@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Synthetic prototype of a Lassie-style ERA/EOB exception queue: cited remittance packet, human gate (post, adjust, hold, escalate), books impact. No real patient data.">
+<title>Lassie - ERA / EOB Exception Queue (Synthetic Demo)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#queue">Skip to exception queue</a>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8.5 2 C10.5 6 12 9 12.5 12 C12 15 10.5 18 8.5 21 C7 19 5.5 15 5.5 12 C5.5 8 6.5 4 8.5 2 Z" fill="#2E7D46"></path>
+        <path d="M8.5 2 L8.5 21" stroke="#2E7D46" stroke-width="1.6" stroke-linecap="round"></path>
+      </svg>
+    </span>
+    <span class="brand-name">Lassie</span>
+    <span class="brand-sub">Practice agent - Payments</span>
+  </div>
+  <span class="demo-badge">Synthetic demo</span>
+</header>
+
+<main class="shell">
+  <header class="hero">
+    <p class="eyebrow">Payments - posting exceptions</p>
+    <h1>ERA / EOB exception queue</h1>
+    <p class="tagline">Lassie posts 98% of payments on its own. This queue is the 2% that needs a human before the books move: a payment that does not tie out cleanly. Open an exception to see the cited remittance packet, pick a gate, and watch the books update.</p>
+  </header>
+
+  <section class="card block" id="queue" aria-labelledby="queue-title">
+    <h2 id="queue-title">1. Exception queue</h2>
+    <p class="hint">Three synthetic exceptions across your book. Tap one to open its cited ERA / EOB packet.</p>
+    <ol class="queue" id="queue-list"></ol>
+  </section>
+
+  <section id="packet-area" class="hidden">
+    <section class="card block" aria-labelledby="case-title">
+      <h2 id="case-title">2. Cited remittance packet</h2>
+      <div id="case-header"></div>
+      <div class="subhead">
+        <h3>ERA / EOB lines</h3>
+        <p>Every money line below is cited: procedure, billed, allowed, paid, remark.</p>
+      </div>
+      <div id="eob-lines"></div>
+      <div id="proposal"></div>
+    </section>
+
+    <section class="card block" aria-labelledby="gate-title">
+      <h2 id="gate-title">3. Human gate</h2>
+      <div id="paused-note"></div>
+      <div id="gate"></div>
+    </section>
+
+    <section class="card block" aria-labelledby="impact-title">
+      <h2 id="impact-title">4. Books impact</h2>
+      <div id="impact"></div>
+    </section>
+  </section>
+</main>
+
+<footer class="shell">
+  <p>Synthetic prototype. No real patient data, no payer logins, no PMS writeback, no Lassie account. Built to show how a Deployment Strategist keeps autonomous posting trustworthy: an exception never hits the books until a human picks the gate.</p>
+  <button id="reset" class="button button-quiet" type="button">Reset demo</button>
+</footer>
+
+<div id="live" class="visually-hidden" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
